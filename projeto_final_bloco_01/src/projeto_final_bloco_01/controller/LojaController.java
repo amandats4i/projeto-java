@@ -15,11 +15,10 @@ public class LojaController implements LojaRepository {
 	@Override
 	public void procurarPorNumero(int numero) {
 
-		Optional<Produto> produto = buscarNaCollection(numero);
+		Optional<Produto> produtos = buscarNaCollection(numero);
 
-		for (var p : listaProduto)
-			if (produto.isPresent())
-				produto.get().visualizar(); 
+			if (produtos.isPresent())
+				produtos.get().visualizar(); 
 			else
 				System.err.println("O pedido " + numero + " não foi encontrado.\n");
 
@@ -28,16 +27,16 @@ public class LojaController implements LojaRepository {
 
 	@Override
 	public void listarTodas() {
-		for (var produto : listaProduto) {
-			produto.visualizar();
+		for (var produtos : listaProduto) {
+			produtos.visualizar();
 		}
 
 	}
 
 	@Override
-	public void cadastrar(Produto numero) {
-		listaProduto.add(numero);
-		System.out.println("O Pedido número: " + numero.getNumero() + " foi criado com sucesso.");
+	public void cadastrar(Produto produto) {
+		listaProduto.add(produto);
+		System.out.println("O Pedido número: " + produto.getNumero() + " foi criado com sucesso.");
 
 	}
 
@@ -56,11 +55,11 @@ public class LojaController implements LojaRepository {
 
 	@Override
 	public void deletar(int numero) {
-		Optional<Produto> produto = buscarNaCollection(numero);
+		Optional<Produto> produtos = buscarNaCollection(numero);
 
-		if (produto.isPresent())
+		if (produtos.isPresent())
 			
-			if (listaProduto.remove(produto.get()) == true)
+			if (listaProduto.remove(produtos.get()) == true)
 				System.out.println("O pedido numero: " + numero + " foi excluído com sucesso.\n");
 			else
 				System.err.println("O pedido numero " + numero + " não foi encontrado.\n");
@@ -73,12 +72,17 @@ public class LojaController implements LojaRepository {
 
 	public Optional<Produto> buscarNaCollection(int numero) {
 
-		for (var produto : listaProduto) {
-			if (produto.getNumero() == numero)
-				return Optional.of(produto);
+		for (var produtos : listaProduto) {
+			if (produtos.getNumero() == numero)
+				return Optional.of(produtos);
 		}
 		return Optional.empty();
 
 	}
 
-}
+
+	}
+
+
+
+

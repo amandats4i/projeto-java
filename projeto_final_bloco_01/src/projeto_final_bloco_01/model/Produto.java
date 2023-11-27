@@ -68,31 +68,32 @@ public abstract class Produto {
 	}
 	
 	public void visualizar() {
-		String tipo = "";
+		
+		String produto = "";
 
 		switch (this.produto) {
-		case 1 -> tipo = "Biquini";
-		case 2 -> tipo = "Maiô";
+		case 1 -> produto = "Biquini";
+		case 2 -> produto = "Maiô";
 		
 		}
 	
-		
+		String cor = "";
 		switch (this.cor) {
-		case 1 -> tipo = "Verde";
-		case 2 -> tipo = "Preto";
+		case 1 -> cor = "Verde";
+		case 2 -> cor = "Preto";
 		
 		}
-		
-		switch (this.produto) {
-		case 1 -> tipo = "Biquini";
-		case 2 -> tipo = "Maiô";
+		String material = "";
+		switch (this.material) {
+		case 1 -> material = "Elastano";
+		case 2 -> material = "Poliamida";
 		
 		}
-		
+		String tamanho = "";
 		switch (this.tamanho) {
-		case 1 -> tipo = "P";
-		case 2 -> tipo = "M";
-		case 3 -> tipo = "G";
+		case 1 -> tamanho = "P";
+		case 2 -> tamanho = "M";
+		case 3 -> tamanho = "G";
 		
 		}
 
@@ -101,11 +102,13 @@ public abstract class Produto {
 		System.out.println("*************************************");
 		System.out.println("Numero do Pedido: " + this.numero);
 		System.out.println("Cliente: " + this.nome);
-		System.out.println("Produto: " + this.produto);
-		System.out.println("Cor: " + this.cor);
-		System.out.println("Tamanho: " + this.tamanho);
-		System.out.println("Material: " + this.material);
+		System.out.println("Produto: " + produto);
+		System.out.println("Cor: " + cor);
+		System.out.println("Tamanho: " + tamanho);
+		System.out.println("Material: " + material);
 	}
+
+	
 	
 	}
 	
